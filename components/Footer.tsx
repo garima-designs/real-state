@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -20,29 +21,31 @@ export default function Footer() {
         <div className="footer-main">
           {/* Brand and Tagline Column */}
           <div className="footer-brand-col">
-            <a href="#" className="brand footer-brand" aria-label="The Address Residences Home">
+            <Link
+              href="/"
+              className="brand footer-brand"
+              aria-label="The Address Residences Home"
+              onClick={(e) => {
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+            >
               <span className="brand-title">The Address.</span>
               <span className="brand-subtitle">RESIDENCES</span>
-            </a>
+            </Link>
             <p className="footer-tagline">
               Modern living, thoughtfully designed. A conceptual residential community in New Chandigarh.
             </p>
 
             <div className="footer-contact">
-              <a
-                href="#enquiry"
-                className="footer-contact-link"
-                title="Illustrative demo contact channel"
-              >
-                enquiries@theaddressresidences.com
-              </a>
-              <a
-                href="#enquiry"
-                className="footer-contact-link"
-                title="Illustrative demo contact channel"
-              >
-                +91 98765 43210
-              </a>
+              <span className="footer-contact-link">
+                enquiries@theaddressresidences.com <span className="demo-tag">(Demo)</span>
+              </span>
+              <span className="footer-contact-link">
+                +91 98765 43210 <span className="demo-tag">(Demo)</span>
+              </span>
               <address className="footer-address">
                 Riverside Avenue, Sector 21
                 <br />

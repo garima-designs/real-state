@@ -45,14 +45,14 @@ export default function EnquiryForm() {
       isValid = false;
     }
 
-    // Contact number: required, numbers only, min 10 digits
+    // Contact number: required, numbers only, 10 to 15 digits
     const cleanPhone = phone.trim().replace(/[\s\-\(\)\+]/g, '');
-    const phoneDigitsOnly = /^\d+$/.test(cleanPhone);
+    const phoneValid = /^\d{10,15}$/.test(cleanPhone);
     if (!cleanPhone) {
       newErrors.phone = 'Please enter your contact number.';
       isValid = false;
-    } else if (!phoneDigitsOnly || cleanPhone.length < 10) {
-      newErrors.phone = 'Please enter a valid 10-digit contact number.';
+    } else if (!phoneValid) {
+      newErrors.phone = 'Please enter a valid contact number (at least 10 digits).';
       isValid = false;
     }
 
@@ -121,13 +121,13 @@ export default function EnquiryForm() {
               <div className="enquiry-direct">
                 <span className="direct-label">Direct Sales Lounge</span>
                 <p className="direct-contact">
-                  <a href="tel:+919876543210" className="direct-link">
-                    +91 98765 43210
-                  </a>
+                  <span className="direct-info">
+                    +91 98765 43210 <span className="demo-tag">(Demo)</span>
+                  </span>
                   <span className="direct-divider">&bull;</span>
-                  <a href="mailto:enquiries@theaddressresidences.com" className="direct-link">
-                    enquiries@theaddressresidences.com
-                  </a>
+                  <span className="direct-info">
+                    enquiries@theaddressresidences.com <span className="demo-tag">(Demo)</span>
+                  </span>
                 </p>
                 <p className="direct-hours">Monday to Sunday, 10:00 AM – 7:00 PM</p>
               </div>
@@ -292,13 +292,16 @@ export default function EnquiryForm() {
               >
                 {isSuccess && (
                   <div>
-                    <strong>Thank you for your interest.</strong>
+                    <strong>Demo Enquiry Recorded Successfully</strong>
                     <p style={{ margin: '4px 0 0 0', fontSize: '0.85rem' }}>
-                      (Demo Notice: Your enquiry for the {preferredResidence} configuration has been recorded locally.)
+                      (Assessment Notice: Thank you for testing. Your preference for the <strong>{preferredResidence}</strong> configuration was recorded locally in-browser. No personal data was transmitted to an external server.)
                     </p>
                   </div>
                 )}
               </div>
+              <p className="form-disclaimer">
+                *Assessment Demonstration: This form validates input in real time and synchronizes residence selection without persistent external storage.
+              </p>
             </form>
           </div>
         </div>

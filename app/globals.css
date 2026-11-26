@@ -1475,16 +1475,34 @@ button {
   opacity: 0.5;
 }
 
-.direct-link {
+.direct-info {
   color: #FFFFFF;
   font-weight: 500;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
 }
 
-.direct-link:hover {
-  opacity: 0.8;
-  text-decoration: underline;
+.demo-tag {
+  font-size: 0.6875rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #E0E0E0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.footer-contact .demo-tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: #BBB;
+}
+
+.form-disclaimer {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 12px;
+  line-height: 1.4;
+  text-align: center;
 }
 
 .direct-hours {

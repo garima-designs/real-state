@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,15 +49,21 @@ export default function Header() {
     >
       <div className="header-container">
         {/* Brand Aligned to the Left */}
-        <a
-          href="#"
+        <Link
+          href="/"
           className="brand"
           aria-label="The Address Residences Home"
-          onClick={closeMenu}
+          onClick={(e) => {
+            closeMenu();
+            if (window.location.pathname === '/') {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
         >
           <span className="brand-title">The Address.</span>
           <span className="brand-subtitle">RESIDENCES</span>
-        </a>
+        </Link>
 
         {/* Mobile Hamburger Toggle */}
         <button

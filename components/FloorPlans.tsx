@@ -268,7 +268,7 @@ export default function FloorPlans() {
                 </svg>
               </a>
               <p className="plan-disclaimer">
-                *Conceptual 3D isometric representations for visualization. Actual layout dimensions may vary slightly during construction.
+                Conceptual 3D floor plans for illustrative purposes only.
               </p>
             </div>
           </div>

@@ -114,7 +114,8 @@ export default function Amenities() {
   };
 
   return (
-    <section id="amenities" className="amenities container" aria-label="Amenities">
+    <section id="amenities" className="amenities-section" aria-label="Amenities">
+      <div className="container">
       <div className="amenities-header reveal-on-scroll">
         <div className="amenities-header-copy">
           <span className="section-tag">AMENITIES</span>
@@ -193,6 +194,7 @@ export default function Amenities() {
             <p className="amenity-description">{item.description}</p>
           </article>
         ))}
+      </div>
       </div>
     </section>
   );

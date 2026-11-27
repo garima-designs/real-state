@@ -3,7 +3,8 @@ import Image from 'next/image';
 
 export default function Gallery() {
   return (
-    <section id="gallery" className="architecture-gallery container" aria-label="Architectural Gallery">
+    <section id="gallery" className="gallery-section" aria-label="Architectural Gallery">
+      <div className="container architecture-gallery">
       {/* Column 1: Intro + Tall Dining Photo */}
       <div className="gallery-column gallery-column--intro reveal-on-scroll">
         <div className="gallery-intro">
@@ -87,6 +88,7 @@ export default function Gallery() {
             <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" />
           </svg>
         </a>
+      </div>
       </div>
     </section>
   );

@@ -67,22 +67,22 @@ export default function ProjectOverview() {
             </figure>
           </div>
 
-          {/* Right Column: Unified Statistics Panel */}
+          {/* Right Column: Distinctive Architectural Bento-Style Statistics Grid */}
           <div className="overview-stats-col reveal-on-scroll stagger-2">
-            <div className="stats-unified-panel" role="region" aria-label="Project Statistics">
-              <div className="stats-panel-header">
+            <div className="stats-bento-wrap" role="region" aria-label="Project Statistics">
+              <div className="stats-bento-header">
                 <span className="stats-panel-title">THE ADDRESS IN NUMBERS</span>
               </div>
 
-              {/* 2x2 Statistics Grid */}
-              <div className="stats-2x2-grid" role="list">
-                {/* Stat 1: 5 Acres */}
-                <div className="stat-cell" role="listitem">
-                  <div className="stat-cell-top">
+              {/* 2x2 Bento Statistics Grid */}
+              <div className="stats-bento-grid" role="list">
+                {/* Card 1: 5 Acres (#3E2C23, Warm Cream text) */}
+                <div className="bento-card bento-card--walnut reveal-on-scroll stagger-1" role="listitem">
+                  <div className="bento-card-top">
                     <svg
-                      className="stat-cell-icon"
-                      width="20"
-                      height="20"
+                      className="bento-icon"
+                      width="22"
+                      height="22"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -91,7 +91,8 @@ export default function ProjectOverview() {
                       strokeLinejoin="round"
                       aria-hidden="true"
                     >
-                      <path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 4v14" />
+                      <path d="M12 2L7 9h3v5H8v6h8v-6h-2V9h3L12 2z" />
+                      <path d="M12 18v4" />
                     </svg>
                     <StatsCounter
                       target={5}
@@ -100,16 +101,16 @@ export default function ProjectOverview() {
                       duration={900}
                     />
                   </div>
-                  <span className="stat-cell-label">Total project area</span>
+                  <span className="bento-card-label">Total project area</span>
                 </div>
 
-                {/* Stat 2: 03 Residential Towers */}
-                <div className="stat-cell" role="listitem">
-                  <div className="stat-cell-top">
+                {/* Card 2: 03 Residential Towers (#E7DCCF, Dark Walnut text) */}
+                <div className="bento-card bento-card--sand reveal-on-scroll stagger-2" role="listitem">
+                  <div className="bento-card-top">
                     <svg
-                      className="stat-cell-icon"
-                      width="20"
-                      height="20"
+                      className="bento-icon"
+                      width="22"
+                      height="22"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -134,19 +135,16 @@ export default function ProjectOverview() {
                       duration={850}
                     />
                   </div>
-                  <span className="stat-cell-label">Residential towers</span>
+                  <span className="bento-card-label">Residential towers</span>
                 </div>
 
-                {/* Horizontal Divider inside Grid */}
-                <div className="stats-grid-divider" aria-hidden="true" />
-
-                {/* Stat 3: 200+ Premium Residences */}
-                <div className="stat-cell" role="listitem">
-                  <div className="stat-cell-top">
+                {/* Card 3: 200+ Premium Residences (#FDFBF8, Dark Walnut text) */}
+                <div className="bento-card bento-card--porcelain reveal-on-scroll stagger-3" role="listitem">
+                  <div className="bento-card-top">
                     <svg
-                      className="stat-cell-icon"
-                      width="20"
-                      height="20"
+                      className="bento-icon"
+                      width="22"
+                      height="22"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -155,7 +153,7 @@ export default function ProjectOverview() {
                       strokeLinejoin="round"
                       aria-hidden="true"
                     >
-                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                      <path d="M3 9.5L12 3l9 6.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z" />
                       <polyline points="9 22 9 12 15 12 15 22" />
                     </svg>
                     <StatsCounter
@@ -165,16 +163,16 @@ export default function ProjectOverview() {
                       duration={1000}
                     />
                   </div>
-                  <span className="stat-cell-label">Premium residences</span>
+                  <span className="bento-card-label">Premium residences</span>
                 </div>
 
-                {/* Stat 4: 2-4 BHK Home Configurations */}
-                <div className="stat-cell" role="listitem">
-                  <div className="stat-cell-top">
+                {/* Card 4: 2-4 BHK Home Configurations (#795B45, Ivory text) */}
+                <div className="bento-card bento-card--mocha reveal-on-scroll stagger-4" role="listitem">
+                  <div className="bento-card-top">
                     <svg
-                      className="stat-cell-icon"
-                      width="20"
-                      height="20"
+                      className="bento-icon"
+                      width="22"
+                      height="22"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -188,15 +186,14 @@ export default function ProjectOverview() {
                     </svg>
                     <span className="stat-number stat-number--static">2-4 BHK</span>
                   </div>
-                  <span className="stat-cell-label">Home configurations</span>
+                  <span className="bento-card-label">Home configurations</span>
                 </div>
               </div>
 
-              {/* Panel Footer Tagline & Disclaimer */}
-              <div className="stats-panel-footer">
-                <p className="stats-panel-tagline">Thoughtfully planned. Designed around you.</p>
-                <p className="stats-disclaimer">*Illustrative project data for master planning demonstration.</p>
-              </div>
+              {/* Specifications Disclaimer below grid */}
+              <p className="stats-disclaimer">
+                *Illustrative project specifications for master planning demonstration.
+              </p>
             </div>
           </div>
         </div>

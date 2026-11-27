@@ -249,7 +249,7 @@ export default function Location() {
               </div>
 
               <figcaption className="map-caption">
-                Illustrative neighbourhood visualization. Travel times are fictional.
+                Illustrative neighbourhood visualization. Travel times are fictional and illustrative.
               </figcaption>
             </figure>
           </div>

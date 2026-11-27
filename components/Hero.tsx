@@ -47,7 +47,7 @@ export default function Hero() {
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
             >
-              <path d="M0 0C0 15.464 12.536 28 28 28H0V0Z" fill="#FFFFFF" />
+              <path d="M0 0C0 15.464 12.536 28 28 28H0V0Z" fill="#FDFBF8" />
             </svg>
 
             {/* Right Inverted Corner */}
@@ -60,7 +60,7 @@ export default function Hero() {
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
             >
-              <path d="M0 0C0 15.464 12.536 28 28 28H0V0Z" fill="#FFFFFF" />
+              <path d="M0 0C0 15.464 12.536 28 28 28H0V0Z" fill="#FDFBF8" />
             </svg>
 
             <a

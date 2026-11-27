@@ -17,6 +17,16 @@ export default function EnquiryForm() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [successKey, setSuccessKey] = useState(0);
+
+  // Auto-dismiss success notification after 5 seconds
+  useEffect(() => {
+    if (!isSuccess) return;
+    const timer = setTimeout(() => {
+      setIsSuccess(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [isSuccess, successKey]);
 
   // Synchronize with FloorPlans selection via CustomEvent
   useEffect(() => {
@@ -75,20 +85,25 @@ export default function EnquiryForm() {
     e.preventDefault();
     if (isSubmitting) return;
 
-    setIsSuccess(false);
-
     if (!validate()) {
+      setIsSuccess(false);
       return;
     }
 
     setIsSubmitting(true);
-    // Frontend demo processing without artificial delay
+    // Frontend demo validation without artificial delay
     setIsSuccess(true);
+    setSuccessKey((prev) => prev + 1);
     setIsSubmitting(false);
+
+    // Reset name, phone and email fields
     setFullName('');
     setPhone('');
     setEmail('');
+
+    // Clear existing validation errors
     setErrors({});
+    // Note: preferredResidence configuration is preserved
   };
 
   return (
@@ -119,15 +134,14 @@ export default function EnquiryForm() {
               </div>
 
               <div className="enquiry-direct">
-                <span className="direct-label">Direct Sales Lounge</span>
+                <div className="direct-header">
+                  <span className="direct-label">Direct Sales Lounge</span>
+                  <span className="illustrative-tag">Illustrative contact details</span>
+                </div>
                 <p className="direct-contact">
-                  <span className="direct-info">
-                    +91 98765 43210 <span className="demo-tag">(Demo)</span>
-                  </span>
-                  <span className="direct-divider">&bull;</span>
-                  <span className="direct-info">
-                    enquiries@theaddressresidences.com <span className="demo-tag">(Demo)</span>
-                  </span>
+                  <span className="direct-info">+91 98765 43210</span>
+                  <span className="direct-divider" aria-hidden="true">&bull;</span>
+                  <span className="direct-info">enquiries@theaddressresidences.com</span>
                 </p>
                 <p className="direct-hours">Monday to Sunday, 10:00 AM – 7:00 PM</p>
               </div>
@@ -284,23 +298,61 @@ export default function EnquiryForm() {
                 </button>
               </div>
 
-              <div
-                className={`form-status ${isSuccess ? 'is-success' : ''}`}
-                id="formStatus"
-                role="status"
-                aria-live="polite"
-              >
-                {isSuccess && (
-                  <div>
-                    <strong>Demo Enquiry Recorded Successfully</strong>
-                    <p style={{ margin: '4px 0 0 0', fontSize: '0.85rem' }}>
-                      (Assessment Notice: Thank you for testing. Your preference for the <strong>{preferredResidence}</strong> configuration was recorded locally in-browser. No personal data was transmitted to an external server.)
+              {isSuccess && (
+                <div
+                  className="form-success-alert"
+                  id="formSuccessAlert"
+                  role="status"
+                  aria-live="polite"
+                >
+                  <div className="form-success-icon" aria-hidden="true">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <circle cx="10" cy="10" r="10" fill="#2E7D32" />
+                      <path
+                        d="M6 10.2L8.8 13L14.2 7.5"
+                        stroke="#FFFFFF"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div className="form-success-body">
+                    <h4 className="form-success-title">Thank you for your interest!</h4>
+                    <p className="form-success-text">
+                      Your enquiry form has been completed successfully.
                     </p>
                   </div>
-                )}
-              </div>
+                  <button
+                    type="button"
+                    className="form-success-dismiss"
+                    onClick={() => setIsSuccess(false)}
+                    aria-label="Dismiss notification"
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M1 1L13 13M1 13L1" />
+                    </svg>
+                  </button>
+                </div>
+              )}
+
               <p className="form-disclaimer">
-                *Assessment Demonstration: This form validates input in real time and synchronizes residence selection without persistent external storage.
+                Preview form — details are not sent.
               </p>
             </form>
           </div>
